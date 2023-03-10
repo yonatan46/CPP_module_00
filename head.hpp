@@ -2,6 +2,7 @@
 # define HEAD_H
 #include <iostream>
 #include "Contact.hpp"
+#include "PhoneBook.hpp"
 class Sample1
 {
 public:

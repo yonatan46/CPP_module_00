@@ -1,8 +1,16 @@
-#include "head.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yonamog2 <yonamog2@student.42abudhabi.a    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/10 14:18:33 by yonamog2          #+#    #+#             */
+/*   Updated: 2023/03/10 14:44:23 by yonamog2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.hpp"
-#include <iostream>
-#include <string.h>
-#include <iomanip> 
 
 void change_case(std::string& input)
 {
@@ -18,48 +26,46 @@ int main(void)
 {
     PhoneBook book;
 
-
     // book.addUserInfo();
     // book.getContactInfo();
     std::string input;
+    int cnt = 0;
     while (1)
     {
-        std::cout << std::setw(50);
-        std::cout << "WELCOME TO CRAPPY PHONE BOOK: " << std::endl;
-        std::cout << "\tOPTIONS" << std::endl;
+        std::cout << "\n" << std::setw(50);
+        std::cout << "WELCOME TO CRAPPY PHONE BOOK ☎️\n" << std::endl;
+        std::cout << "\tOPTIONS ☎" << std::endl;
         std::cout << "--------------------------------------------------------" << std::endl;
-        std::cout << "->ADD" << std::endl;
-        std::cout << "->SEARCH" << std::endl;
-        std::cout << "->EXIT" << std::endl;
+        std::cout << "->ADD 📲" << std::endl;
+        std::cout << "->SEARCH ⌕" << std::endl;
+        std::cout << "->EXIT ✆" << std::endl;
         std::cout << "--------------------------------------------------------" << std::endl;
         std::cout << "INPUT: ";
+        input.clear();
         std::getline(std::cin, input);
-        change_case(input);
-        if(input == "" || input == "EXIT")
+        if(std::cin.eof() || std::cin.bad() || input == "EXIT")
         {
             system("clear");
-            std::cout << "Bye Bye" << std::endl;
+            std::cout << "\t\033[1;31m---------------------------------" << std::endl;
+            std::cout << "\t|\t👋Bye Bye👋\t\t|" << std::endl;
+            std::cout << "\t---------------------------------\033[0m" << std::endl;
             exit(1);
         }
         else if(input == "ADD")
         {
             system("clear");
             book.addUserInfo();
-            // std::cout << "ADD" << std::endl;
         }
         else if(input == "SEARCH")
         {
             system("clear");
             book.getContactInfo();
-            // std::cout << "SEARCH" << std::endl;
         }
         else
         {
             system("clear");
-            std::cout << "\033[1;31mError: please try again\033[0m" << std::endl;
+            std::cout <<  " < " << input << " > " << "\033[1;31mError: please try again\033[0m" <<std::endl;
         }
-        std::cin.ignore();
-        input.clear();
     }
     
     return(1);

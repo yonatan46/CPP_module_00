@@ -9,41 +9,20 @@ class Contact
 private:
     std::string _firstName;
     std::string _lastName;
+    std::string _nickName;
     std::string _phoneNumber;
     std::string _darkestSecret;
+    int _format_print(std::string input);
 public:
     void setContact(std::string firstName,
         std::string lastName,
+        std::string nickName,
         std::string phoneNumber,
         std::string darkestSecret);
     void getContact( void );
+    void getContact_one( void );
     Contact( void );
     ~Contact();
 };
-void Contact::setContact(std::string firstName,
-        std::string lastName,
-        std::string phoneNumber,
-        std::string darkestSecret)
-{
-    this->_firstName = firstName;
-    this->_lastName = lastName;
-    this->_phoneNumber = phoneNumber;
-    this->_darkestSecret = darkestSecret;
-}
-
-void Contact::getContact()
-{
-    // if(this->_firstName)
-        std::cout << "first:\t" <<  this->_firstName << "\t";
-    // if(this->_lastName)
-        std::cout << "last:\t" <<  this->_lastName << std::endl;
-}
-Contact::Contact( void )
-{
-}
-
-Contact::~Contact()
-{
-}
-
 #endif
+
